@@ -6,7 +6,7 @@ Translate from [ker.js](https://github.com/csvwolf/ker.js/blob/master/src/ker.js
 ## Install
 
 ```shell
-pip install ker
+pip install ker.py
 ```
 
 ## Usage
