@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.7.0" />
 <title>ker.api.server API documentation</title>
-<meta name="description" content="" />
+<meta name="description" content="server module" />
 <link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
 <link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
@@ -20,76 +20,108 @@
 <h1 class="title">Module <code>ker.api.server</code></h1>
 </header>
 <section id="section-intro">
+<p>server module</p>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">from ker.utils import request
-from ker.api import API_LIST
+<pre><code class="python">&#34;&#34;&#34;
+server module
+&#34;&#34;&#34;
+from ker.utils import request
+from .list import API_LIST
+
 
 class Server:
-  def __init__(self, email, token):
-    self.email = email
-    self.token = token
+    &#34;&#34;&#34;
+    server apis
+    &#34;&#34;&#34;
+    def __init__(self, email, token):
+        self.email = email
+        self.token = token
 
-  def list(self):
-    return request(API_LIST.SERVERS_LIST.value, {
-      &#39;email&#39;: self.email,
-      &#39;token&#39;: self.token
-    })
-  
-  def get(self ,uuid):
-    return request(API_LIST.SERVER_GET.value, {
-      &#39;email&#39;: self.email,
-      &#39;token&#39;: self.token,
-      &#39;uuid&#39;: uuid
-    })
+    def list(self):
+        &#34;&#34;&#34;
+        list all servers
+        &#34;&#34;&#34;
+        return request(API_LIST.SERVERS_LIST.value, {
+            &#39;email&#39;: self.email,
+            &#39;token&#39;: self.token
+        })
 
-  def create(self, name, memory, area, os, ssh_key):
-    return request(API_LIST.SERVER_CREATE.value, {
-      &#39;email&#39;: self.email,
-      &#39;token&#39;: self.token,
-      &#39;name&#39;: name,
-      &#39;memory&#39;: memory,
-      &#39;area&#39;: area,
-      &#39;os&#39;: os,
-      &#39;sshKey&#39;: ssh_key
-    })
-  
-  def set_power(self, uuid, power):
-    return request(API_LIST.SERVER_SET_POWER.value, {
-      &#39;email&#39;: self.email,
-      &#39;token&#39;: self.token,
-      &#39;uuid&#39;: uuid,
-      &#39;power&#39;: power
-    })
+    def get(self, uuid):
+        &#34;&#34;&#34;
+        get one server by uuid
+        &#34;&#34;&#34;
+        return request(API_LIST.SERVER_GET.value, {
+            &#39;email&#39;: self.email,
+            &#39;token&#39;: self.token,
+            &#39;uuid&#39;: uuid
+        })
 
-  def set(self, uuid, close_disk_virt_io, close_net_virt_io, iso, boot_order):
-    return request(API_LIST.SERVER_SET.value, {
-      &#39;email&#39;: self.email,
-      &#39;token&#39;: self.token,
-      &#39;uuid&#39;: uuid,
-      &#39;closeDiskVirtIO&#39;: close_disk_virt_io,
-      &#39;closeNetVirtIO&#39;: close_net_virt_io,
-      &#39;iso&#39;: iso,
-      &#39;bootOrder&#39;: boot_order
-    })
 
-  def reinstall(self, uuid, os, ssh_key):
-    return request(API_LIST.SERVER_REINSTALL.value, {
-      &#39;email&#39;: self.email,
-      &#39;token&#39;: self.token,
-      &#39;uuid&#39;: uuid,
-      &#39;os&#39;: os,
-      &#39;sshKey&#39;: ssh_key
-    })
-  
-  def delete(self, uuid):
-    return request(API_LIST.SERVER_DELETE.value, {
-      &#39;email&#39;: self.email,
-      &#39;token&#39;: self.token,
-      &#39;uuid&#39;: uuid
-    })</code></pre>
+    def create(self, name, memory, area, os, ssh_key):
+        &#34;&#34;&#34;
+        create a server
+        &#34;&#34;&#34;
+        return request(API_LIST.SERVER_CREATE.value, {
+            &#39;email&#39;: self.email,
+            &#39;token&#39;: self.token,
+            &#39;name&#39;: name,
+            &#39;memory&#39;: memory,
+            &#39;area&#39;: area,
+            &#39;os&#39;: os,
+            &#39;sshKey&#39;: ssh_key
+        })
+
+
+    def set_power(self, uuid, power):
+        &#34;&#34;&#34;
+        set power for server by uuid
+        &#34;&#34;&#34;
+        return request(API_LIST.SERVER_SET_POWER.value, {
+            &#39;email&#39;: self.email,
+            &#39;token&#39;: self.token,
+            &#39;uuid&#39;: uuid,
+            &#39;power&#39;: power
+        })
+
+
+    def set(self, uuid, close_disk_virt_io, close_net_virt_io, iso, boot_order):
+        &#34;&#34;&#34;
+        set server by uuid
+        &#34;&#34;&#34;
+        return request(API_LIST.SERVER_SET.value, {
+            &#39;email&#39;: self.email,
+            &#39;token&#39;: self.token,
+            &#39;uuid&#39;: uuid,
+            &#39;closeDiskVirtIO&#39;: close_disk_virt_io,
+            &#39;closeNetVirtIO&#39;: close_net_virt_io,
+            &#39;iso&#39;: iso,
+            &#39;bootOrder&#39;: boot_order
+        })
+
+    def reinstall(self, uuid, os, ssh_key):
+        &#34;&#34;&#34;
+        reinstall a server
+        &#34;&#34;&#34;
+        return request(API_LIST.SERVER_REINSTALL.value, {
+            &#39;email&#39;: self.email,
+            &#39;token&#39;: self.token,
+            &#39;uuid&#39;: uuid,
+            &#39;os&#39;: os,
+            &#39;sshKey&#39;: ssh_key
+        })
+
+    def delete(self, uuid):
+        &#34;&#34;&#34;
+        delete a server by uuid(no confirm or recycle bin!!)
+        &#34;&#34;&#34;
+        return request(API_LIST.SERVER_DELETE.value, {
+            &#39;email&#39;: self.email,
+            &#39;token&#39;: self.token,
+            &#39;uuid&#39;: uuid
+        })</code></pre>
 </details>
 </section>
 <section>
@@ -106,74 +138,101 @@ class Server:
 <span>(</span><span>email, token)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>server apis</p></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class Server:
-  def __init__(self, email, token):
-    self.email = email
-    self.token = token
+    &#34;&#34;&#34;
+    server apis
+    &#34;&#34;&#34;
+    def __init__(self, email, token):
+        self.email = email
+        self.token = token
 
-  def list(self):
-    return request(API_LIST.SERVERS_LIST.value, {
-      &#39;email&#39;: self.email,
-      &#39;token&#39;: self.token
-    })
-  
-  def get(self ,uuid):
-    return request(API_LIST.SERVER_GET.value, {
-      &#39;email&#39;: self.email,
-      &#39;token&#39;: self.token,
-      &#39;uuid&#39;: uuid
-    })
+    def list(self):
+        &#34;&#34;&#34;
+        list all servers
+        &#34;&#34;&#34;
+        return request(API_LIST.SERVERS_LIST.value, {
+            &#39;email&#39;: self.email,
+            &#39;token&#39;: self.token
+        })
 
-  def create(self, name, memory, area, os, ssh_key):
-    return request(API_LIST.SERVER_CREATE.value, {
-      &#39;email&#39;: self.email,
-      &#39;token&#39;: self.token,
-      &#39;name&#39;: name,
-      &#39;memory&#39;: memory,
-      &#39;area&#39;: area,
-      &#39;os&#39;: os,
-      &#39;sshKey&#39;: ssh_key
-    })
-  
-  def set_power(self, uuid, power):
-    return request(API_LIST.SERVER_SET_POWER.value, {
-      &#39;email&#39;: self.email,
-      &#39;token&#39;: self.token,
-      &#39;uuid&#39;: uuid,
-      &#39;power&#39;: power
-    })
+    def get(self, uuid):
+        &#34;&#34;&#34;
+        get one server by uuid
+        &#34;&#34;&#34;
+        return request(API_LIST.SERVER_GET.value, {
+            &#39;email&#39;: self.email,
+            &#39;token&#39;: self.token,
+            &#39;uuid&#39;: uuid
+        })
 
-  def set(self, uuid, close_disk_virt_io, close_net_virt_io, iso, boot_order):
-    return request(API_LIST.SERVER_SET.value, {
-      &#39;email&#39;: self.email,
-      &#39;token&#39;: self.token,
-      &#39;uuid&#39;: uuid,
-      &#39;closeDiskVirtIO&#39;: close_disk_virt_io,
-      &#39;closeNetVirtIO&#39;: close_net_virt_io,
-      &#39;iso&#39;: iso,
-      &#39;bootOrder&#39;: boot_order
-    })
 
-  def reinstall(self, uuid, os, ssh_key):
-    return request(API_LIST.SERVER_REINSTALL.value, {
-      &#39;email&#39;: self.email,
-      &#39;token&#39;: self.token,
-      &#39;uuid&#39;: uuid,
-      &#39;os&#39;: os,
-      &#39;sshKey&#39;: ssh_key
-    })
-  
-  def delete(self, uuid):
-    return request(API_LIST.SERVER_DELETE.value, {
-      &#39;email&#39;: self.email,
-      &#39;token&#39;: self.token,
-      &#39;uuid&#39;: uuid
-    })</code></pre>
+    def create(self, name, memory, area, os, ssh_key):
+        &#34;&#34;&#34;
+        create a server
+        &#34;&#34;&#34;
+        return request(API_LIST.SERVER_CREATE.value, {
+            &#39;email&#39;: self.email,
+            &#39;token&#39;: self.token,
+            &#39;name&#39;: name,
+            &#39;memory&#39;: memory,
+            &#39;area&#39;: area,
+            &#39;os&#39;: os,
+            &#39;sshKey&#39;: ssh_key
+        })
+
+
+    def set_power(self, uuid, power):
+        &#34;&#34;&#34;
+        set power for server by uuid
+        &#34;&#34;&#34;
+        return request(API_LIST.SERVER_SET_POWER.value, {
+            &#39;email&#39;: self.email,
+            &#39;token&#39;: self.token,
+            &#39;uuid&#39;: uuid,
+            &#39;power&#39;: power
+        })
+
+
+    def set(self, uuid, close_disk_virt_io, close_net_virt_io, iso, boot_order):
+        &#34;&#34;&#34;
+        set server by uuid
+        &#34;&#34;&#34;
+        return request(API_LIST.SERVER_SET.value, {
+            &#39;email&#39;: self.email,
+            &#39;token&#39;: self.token,
+            &#39;uuid&#39;: uuid,
+            &#39;closeDiskVirtIO&#39;: close_disk_virt_io,
+            &#39;closeNetVirtIO&#39;: close_net_virt_io,
+            &#39;iso&#39;: iso,
+            &#39;bootOrder&#39;: boot_order
+        })
+
+    def reinstall(self, uuid, os, ssh_key):
+        &#34;&#34;&#34;
+        reinstall a server
+        &#34;&#34;&#34;
+        return request(API_LIST.SERVER_REINSTALL.value, {
+            &#39;email&#39;: self.email,
+            &#39;token&#39;: self.token,
+            &#39;uuid&#39;: uuid,
+            &#39;os&#39;: os,
+            &#39;sshKey&#39;: ssh_key
+        })
+
+    def delete(self, uuid):
+        &#34;&#34;&#34;
+        delete a server by uuid(no confirm or recycle bin!!)
+        &#34;&#34;&#34;
+        return request(API_LIST.SERVER_DELETE.value, {
+            &#39;email&#39;: self.email,
+            &#39;token&#39;: self.token,
+            &#39;uuid&#39;: uuid
+        })</code></pre>
 </details>
 <h3>Methods</h3>
 <dl>
@@ -181,129 +240,150 @@ class Server:
 <span>def <span class="ident">create</span></span>(<span>self, name, memory, area, os, ssh_key)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>create a server</p></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def create(self, name, memory, area, os, ssh_key):
-  return request(API_LIST.SERVER_CREATE.value, {
-    &#39;email&#39;: self.email,
-    &#39;token&#39;: self.token,
-    &#39;name&#39;: name,
-    &#39;memory&#39;: memory,
-    &#39;area&#39;: area,
-    &#39;os&#39;: os,
-    &#39;sshKey&#39;: ssh_key
-  })</code></pre>
+    &#34;&#34;&#34;
+    create a server
+    &#34;&#34;&#34;
+    return request(API_LIST.SERVER_CREATE.value, {
+        &#39;email&#39;: self.email,
+        &#39;token&#39;: self.token,
+        &#39;name&#39;: name,
+        &#39;memory&#39;: memory,
+        &#39;area&#39;: area,
+        &#39;os&#39;: os,
+        &#39;sshKey&#39;: ssh_key
+    })</code></pre>
 </details>
 </dd>
 <dt id="ker.api.server.Server.delete"><code class="name flex">
 <span>def <span class="ident">delete</span></span>(<span>self, uuid)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>delete a server by uuid(no confirm or recycle bin!!)</p></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def delete(self, uuid):
-  return request(API_LIST.SERVER_DELETE.value, {
-    &#39;email&#39;: self.email,
-    &#39;token&#39;: self.token,
-    &#39;uuid&#39;: uuid
-  })</code></pre>
+    &#34;&#34;&#34;
+    delete a server by uuid(no confirm or recycle bin!!)
+    &#34;&#34;&#34;
+    return request(API_LIST.SERVER_DELETE.value, {
+        &#39;email&#39;: self.email,
+        &#39;token&#39;: self.token,
+        &#39;uuid&#39;: uuid
+    })</code></pre>
 </details>
 </dd>
 <dt id="ker.api.server.Server.get"><code class="name flex">
 <span>def <span class="ident">get</span></span>(<span>self, uuid)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>get one server by uuid</p></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def get(self ,uuid):
-  return request(API_LIST.SERVER_GET.value, {
-    &#39;email&#39;: self.email,
-    &#39;token&#39;: self.token,
-    &#39;uuid&#39;: uuid
-  })</code></pre>
+<pre><code class="python">def get(self, uuid):
+    &#34;&#34;&#34;
+    get one server by uuid
+    &#34;&#34;&#34;
+    return request(API_LIST.SERVER_GET.value, {
+        &#39;email&#39;: self.email,
+        &#39;token&#39;: self.token,
+        &#39;uuid&#39;: uuid
+    })</code></pre>
 </details>
 </dd>
 <dt id="ker.api.server.Server.list"><code class="name flex">
 <span>def <span class="ident">list</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>list all servers</p></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def list(self):
-  return request(API_LIST.SERVERS_LIST.value, {
-    &#39;email&#39;: self.email,
-    &#39;token&#39;: self.token
-  })</code></pre>
+    &#34;&#34;&#34;
+    list all servers
+    &#34;&#34;&#34;
+    return request(API_LIST.SERVERS_LIST.value, {
+        &#39;email&#39;: self.email,
+        &#39;token&#39;: self.token
+    })</code></pre>
 </details>
 </dd>
 <dt id="ker.api.server.Server.reinstall"><code class="name flex">
 <span>def <span class="ident">reinstall</span></span>(<span>self, uuid, os, ssh_key)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>reinstall a server</p></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def reinstall(self, uuid, os, ssh_key):
-  return request(API_LIST.SERVER_REINSTALL.value, {
-    &#39;email&#39;: self.email,
-    &#39;token&#39;: self.token,
-    &#39;uuid&#39;: uuid,
-    &#39;os&#39;: os,
-    &#39;sshKey&#39;: ssh_key
-  })</code></pre>
+    &#34;&#34;&#34;
+    reinstall a server
+    &#34;&#34;&#34;
+    return request(API_LIST.SERVER_REINSTALL.value, {
+        &#39;email&#39;: self.email,
+        &#39;token&#39;: self.token,
+        &#39;uuid&#39;: uuid,
+        &#39;os&#39;: os,
+        &#39;sshKey&#39;: ssh_key
+    })</code></pre>
 </details>
 </dd>
 <dt id="ker.api.server.Server.set"><code class="name flex">
 <span>def <span class="ident">set</span></span>(<span>self, uuid, close_disk_virt_io, close_net_virt_io, iso, boot_order)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>set server by uuid</p></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def set(self, uuid, close_disk_virt_io, close_net_virt_io, iso, boot_order):
-  return request(API_LIST.SERVER_SET.value, {
-    &#39;email&#39;: self.email,
-    &#39;token&#39;: self.token,
-    &#39;uuid&#39;: uuid,
-    &#39;closeDiskVirtIO&#39;: close_disk_virt_io,
-    &#39;closeNetVirtIO&#39;: close_net_virt_io,
-    &#39;iso&#39;: iso,
-    &#39;bootOrder&#39;: boot_order
-  })</code></pre>
+    &#34;&#34;&#34;
+    set server by uuid
+    &#34;&#34;&#34;
+    return request(API_LIST.SERVER_SET.value, {
+        &#39;email&#39;: self.email,
+        &#39;token&#39;: self.token,
+        &#39;uuid&#39;: uuid,
+        &#39;closeDiskVirtIO&#39;: close_disk_virt_io,
+        &#39;closeNetVirtIO&#39;: close_net_virt_io,
+        &#39;iso&#39;: iso,
+        &#39;bootOrder&#39;: boot_order
+    })</code></pre>
 </details>
 </dd>
 <dt id="ker.api.server.Server.set_power"><code class="name flex">
 <span>def <span class="ident">set_power</span></span>(<span>self, uuid, power)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>set power for server by uuid</p></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def set_power(self, uuid, power):
-  return request(API_LIST.SERVER_SET_POWER.value, {
-    &#39;email&#39;: self.email,
-    &#39;token&#39;: self.token,
-    &#39;uuid&#39;: uuid,
-    &#39;power&#39;: power
-  })</code></pre>
+    &#34;&#34;&#34;
+    set power for server by uuid
+    &#34;&#34;&#34;
+    return request(API_LIST.SERVER_SET_POWER.value, {
+        &#39;email&#39;: self.email,
+        &#39;token&#39;: self.token,
+        &#39;uuid&#39;: uuid,
+        &#39;power&#39;: power
+    })</code></pre>
 </details>
 </dd>
 </dl>

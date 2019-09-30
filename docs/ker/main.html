@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.7.0" />
 <title>ker.main API documentation</title>
-<meta name="description" content="" />
+<meta name="description" content="Main usage class for the module" />
 <link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
 <link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
@@ -20,33 +20,44 @@
 <h1 class="title">Module <code>ker.main</code></h1>
 </header>
 <section id="section-intro">
+<p>Main usage class for the module</p>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">from ker.api import Server
+<pre><code class="python">&#34;&#34;&#34;
+Main usage class for the module
+&#34;&#34;&#34;
+from ker.api import Server
 from ker.api import Account
 from ker.api import DNS
 from ker.api import Monitor
 from ker.api import SSH
 from ker.utils import HostkerRequestError
 
-class Ker:
-  def __init__(self, email, token):
-    self.email = email
-    self.token = token
-    self.dns = DNS(email, token)
-    self.monitor = Monitor(email, token)
-    self.server = Server(email, token)
-    self.ssh = SSH(email, token)
-    self.account = Account(email, token)
 
-  def test(self):
-    try:
-      self.account.get_quota()
-    except HostkerRequestError:
-      return False
-    return True</code></pre>
+class Ker:
+    &#34;&#34;&#34;
+    Includes all apis for hostker.
+    &#34;&#34;&#34;
+    def __init__(self, email, token):
+        self.email = email
+        self.token = token
+        self.dns = DNS(email, token)
+        self.monitor = Monitor(email, token)
+        self.server = Server(email, token)
+        self.ssh = SSH(email, token)
+        self.account = Account(email, token)
+
+    def test(self):
+        &#34;&#34;&#34;
+        You can test with: Ker([email], [token]).test()
+        &#34;&#34;&#34;
+        try:
+            self.account.get_quota()
+        except HostkerRequestError:
+            return False
+        return True</code></pre>
 </details>
 </section>
 <section>
@@ -63,27 +74,33 @@ class Ker:
 <span>(</span><span>email, token)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>Includes all apis for hostker.</p></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class Ker:
-  def __init__(self, email, token):
-    self.email = email
-    self.token = token
-    self.dns = DNS(email, token)
-    self.monitor = Monitor(email, token)
-    self.server = Server(email, token)
-    self.ssh = SSH(email, token)
-    self.account = Account(email, token)
+    &#34;&#34;&#34;
+    Includes all apis for hostker.
+    &#34;&#34;&#34;
+    def __init__(self, email, token):
+        self.email = email
+        self.token = token
+        self.dns = DNS(email, token)
+        self.monitor = Monitor(email, token)
+        self.server = Server(email, token)
+        self.ssh = SSH(email, token)
+        self.account = Account(email, token)
 
-  def test(self):
-    try:
-      self.account.get_quota()
-    except HostkerRequestError:
-      return False
-    return True</code></pre>
+    def test(self):
+        &#34;&#34;&#34;
+        You can test with: Ker([email], [token]).test()
+        &#34;&#34;&#34;
+        try:
+            self.account.get_quota()
+        except HostkerRequestError:
+            return False
+        return True</code></pre>
 </details>
 <h3>Methods</h3>
 <dl>
@@ -91,17 +108,20 @@ class Ker:
 <span>def <span class="ident">test</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>You can test with: Ker([email], [token]).test()</p></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def test(self):
-  try:
-    self.account.get_quota()
-  except HostkerRequestError:
-    return False
-  return True</code></pre>
+    &#34;&#34;&#34;
+    You can test with: Ker([email], [token]).test()
+    &#34;&#34;&#34;
+    try:
+        self.account.get_quota()
+    except HostkerRequestError:
+        return False
+    return True</code></pre>
 </details>
 </dd>
 </dl>

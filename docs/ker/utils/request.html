@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.7.0" />
 <title>ker.utils.request API documentation</title>
-<meta name="description" content="" />
+<meta name="description" content="request creator for hostker common attributes" />
 <link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
 <link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
@@ -20,22 +20,36 @@
 <h1 class="title">Module <code>ker.utils.request</code></h1>
 </header>
 <section id="section-intro">
+<p>request creator for hostker common attributes</p>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">import requests
+<pre><code class="python">&#34;&#34;&#34;
+request creator for hostker common attributes
+&#34;&#34;&#34;
+import requests
+
 
 class HostkerRequestError(Exception):
-  pass
+    &#34;&#34;&#34;
+    Custom Request Error
+    &#34;&#34;&#34;
 
 def request(path, params):
-  r = requests.post(f&#39;https://i.hostker.com/api{path}&#39;, data=params, headers={&#39;Content-Type&#39;: &#39;application/x-www-form-urlencoded&#39;})
-  r.encoding = &#39;utf-8&#39;
-  result = r.json()
-  if result[&#39;success&#39;] == 0:
-    raise HostkerRequestError(result[&#39;errorMessage&#39;])
-  return result</code></pre>
+    &#34;&#34;&#34;
+    request with content-type application/x-www-form-urlencoded and handle error
+    &#34;&#34;&#34;
+    res = requests.post(
+        f&#39;https://i.hostker.com/api{path}&#39;,
+        data=params,
+        headers={&#39;Content-Type&#39;: &#39;application/x-www-form-urlencoded&#39;}
+    )
+    res.encoding = &#39;utf-8&#39;
+    result = res.json()
+    if result[&#39;success&#39;] == 0:
+        raise HostkerRequestError(result[&#39;errorMessage&#39;])
+    return result</code></pre>
 </details>
 </section>
 <section>
@@ -49,18 +63,25 @@ def request(path, params):
 <span>def <span class="ident">request</span></span>(<span>path, params)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>request with content-type application/x-www-form-urlencoded and handle error</p></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def request(path, params):
-  r = requests.post(f&#39;https://i.hostker.com/api{path}&#39;, data=params, headers={&#39;Content-Type&#39;: &#39;application/x-www-form-urlencoded&#39;})
-  r.encoding = &#39;utf-8&#39;
-  result = r.json()
-  if result[&#39;success&#39;] == 0:
-    raise HostkerRequestError(result[&#39;errorMessage&#39;])
-  return result</code></pre>
+    &#34;&#34;&#34;
+    request with content-type application/x-www-form-urlencoded and handle error
+    &#34;&#34;&#34;
+    res = requests.post(
+        f&#39;https://i.hostker.com/api{path}&#39;,
+        data=params,
+        headers={&#39;Content-Type&#39;: &#39;application/x-www-form-urlencoded&#39;}
+    )
+    res.encoding = &#39;utf-8&#39;
+    result = res.json()
+    if result[&#39;success&#39;] == 0:
+        raise HostkerRequestError(result[&#39;errorMessage&#39;])
+    return result</code></pre>
 </details>
 </dd>
 </dl>
@@ -73,13 +94,15 @@ def request(path, params):
 <span>(</span><span>*args, **kwargs)</span>
 </code></dt>
 <dd>
-<section class="desc"><p>Common base class for all non-exit exceptions.</p></section>
+<section class="desc"><p>Custom Request Error</p></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class HostkerRequestError(Exception):
-  pass</code></pre>
+    &#34;&#34;&#34;
+    Custom Request Error
+    &#34;&#34;&#34;</code></pre>
 </details>
 <h3>Ancestors</h3>
 <ul class="hlist">

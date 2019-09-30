@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.7.0" />
 <title>ker.api.list API documentation</title>
-<meta name="description" content="" />
+<meta name="description" content="api list module" />
 <link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
 <link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
@@ -20,33 +20,41 @@
 <h1 class="title">Module <code>ker.api.list</code></h1>
 </header>
 <section id="section-intro">
+<p>api list module</p>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">from enum import Enum
+<pre><code class="python">&#34;&#34;&#34;
+api list module
+&#34;&#34;&#34;
+from enum import Enum
+
 
 class API_LIST(Enum):
-  ACCOUNT_QUOTA = &#39;/quota&#39;
-  ACCOUNT_BALANCE = &#39;/balance&#39;
-  SSH_LIST = &#39;/listSshKey&#39;
-  SSH_CREATE = &#39;/createSshKey&#39;
-  SSH_DELETE = &#39;/deleteSshKey&#39;
-  SERVERS_LIST = &#39;/listServers&#39;
-  SERVER_GET = &#39;/getServer&#39;
-  SERVER_CREATE = &#39;/createServer&#39;
-  SERVER_SET_POWER = &#39;/setPower&#39;
-  SERVER_SET= &#39;/setServer&#39;
-  SERVER_REINSTALL = &#39;/reinstallServer&#39;
-  SERVER_DELETE = &#39;/deleteServer&#39;
-  MONITOR_CPU = &#39;/cpuMonitor&#39;
-  MONITOR_NET = &#39;/netMonitor&#39;
-  MONITOR_NAT = &#39;/natMonitor&#39;
-  MONITOR_IO = &#39;/IOMonitor&#39;
-  DNS_LIST = &#39;/dnsGetRecords&#39;
-  DNS_ADD = &#39;/dnsAddRecord&#39;
-  DNS_EDIT = &#39;/dnsEditRecord&#39;
-  DNS_DELETE = &#39;/dnsDeleteRecord&#39;</code></pre>
+    &#34;&#34;&#34;
+    api uri list
+    &#34;&#34;&#34;
+    ACCOUNT_QUOTA = &#39;/quota&#39;
+    ACCOUNT_BALANCE = &#39;/balance&#39;
+    SSH_LIST = &#39;/listSshKey&#39;
+    SSH_CREATE = &#39;/createSshKey&#39;
+    SSH_DELETE = &#39;/deleteSshKey&#39;
+    SERVERS_LIST = &#39;/listServers&#39;
+    SERVER_GET = &#39;/getServer&#39;
+    SERVER_CREATE = &#39;/createServer&#39;
+    SERVER_SET_POWER = &#39;/setPower&#39;
+    SERVER_SET = &#39;/setServer&#39;
+    SERVER_REINSTALL = &#39;/reinstallServer&#39;
+    SERVER_DELETE = &#39;/deleteServer&#39;
+    MONITOR_CPU = &#39;/cpuMonitor&#39;
+    MONITOR_NET = &#39;/netMonitor&#39;
+    MONITOR_NAT = &#39;/natMonitor&#39;
+    MONITOR_IO = &#39;/IOMonitor&#39;
+    DNS_LIST = &#39;/dnsGetRecords&#39;
+    DNS_ADD = &#39;/dnsAddRecord&#39;
+    DNS_EDIT = &#39;/dnsEditRecord&#39;
+    DNS_DELETE = &#39;/dnsDeleteRecord&#39;</code></pre>
 </details>
 </section>
 <section>
@@ -63,32 +71,35 @@ class API_LIST(Enum):
 <span>(</span><span>*args, **kwargs)</span>
 </code></dt>
 <dd>
-<section class="desc"><p>An enumeration.</p></section>
+<section class="desc"><p>api uri list</p></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class API_LIST(Enum):
-  ACCOUNT_QUOTA = &#39;/quota&#39;
-  ACCOUNT_BALANCE = &#39;/balance&#39;
-  SSH_LIST = &#39;/listSshKey&#39;
-  SSH_CREATE = &#39;/createSshKey&#39;
-  SSH_DELETE = &#39;/deleteSshKey&#39;
-  SERVERS_LIST = &#39;/listServers&#39;
-  SERVER_GET = &#39;/getServer&#39;
-  SERVER_CREATE = &#39;/createServer&#39;
-  SERVER_SET_POWER = &#39;/setPower&#39;
-  SERVER_SET= &#39;/setServer&#39;
-  SERVER_REINSTALL = &#39;/reinstallServer&#39;
-  SERVER_DELETE = &#39;/deleteServer&#39;
-  MONITOR_CPU = &#39;/cpuMonitor&#39;
-  MONITOR_NET = &#39;/netMonitor&#39;
-  MONITOR_NAT = &#39;/natMonitor&#39;
-  MONITOR_IO = &#39;/IOMonitor&#39;
-  DNS_LIST = &#39;/dnsGetRecords&#39;
-  DNS_ADD = &#39;/dnsAddRecord&#39;
-  DNS_EDIT = &#39;/dnsEditRecord&#39;
-  DNS_DELETE = &#39;/dnsDeleteRecord&#39;</code></pre>
+    &#34;&#34;&#34;
+    api uri list
+    &#34;&#34;&#34;
+    ACCOUNT_QUOTA = &#39;/quota&#39;
+    ACCOUNT_BALANCE = &#39;/balance&#39;
+    SSH_LIST = &#39;/listSshKey&#39;
+    SSH_CREATE = &#39;/createSshKey&#39;
+    SSH_DELETE = &#39;/deleteSshKey&#39;
+    SERVERS_LIST = &#39;/listServers&#39;
+    SERVER_GET = &#39;/getServer&#39;
+    SERVER_CREATE = &#39;/createServer&#39;
+    SERVER_SET_POWER = &#39;/setPower&#39;
+    SERVER_SET = &#39;/setServer&#39;
+    SERVER_REINSTALL = &#39;/reinstallServer&#39;
+    SERVER_DELETE = &#39;/deleteServer&#39;
+    MONITOR_CPU = &#39;/cpuMonitor&#39;
+    MONITOR_NET = &#39;/netMonitor&#39;
+    MONITOR_NAT = &#39;/natMonitor&#39;
+    MONITOR_IO = &#39;/IOMonitor&#39;
+    DNS_LIST = &#39;/dnsGetRecords&#39;
+    DNS_ADD = &#39;/dnsAddRecord&#39;
+    DNS_EDIT = &#39;/dnsEditRecord&#39;
+    DNS_DELETE = &#39;/dnsDeleteRecord&#39;</code></pre>
 </details>
 <h3>Ancestors</h3>
 <ul class="hlist">
@@ -98,83 +109,83 @@ class API_LIST(Enum):
 <dl>
 <dt id="ker.api.list.API_LIST.ACCOUNT_BALANCE"><code class="name">var <span class="ident">ACCOUNT_BALANCE</span></code></dt>
 <dd>
-<section class="desc"><p>An enumeration.</p></section>
+<section class="desc"><p>api uri list</p></section>
 </dd>
 <dt id="ker.api.list.API_LIST.ACCOUNT_QUOTA"><code class="name">var <span class="ident">ACCOUNT_QUOTA</span></code></dt>
 <dd>
-<section class="desc"><p>An enumeration.</p></section>
+<section class="desc"><p>api uri list</p></section>
 </dd>
 <dt id="ker.api.list.API_LIST.DNS_ADD"><code class="name">var <span class="ident">DNS_ADD</span></code></dt>
 <dd>
-<section class="desc"><p>An enumeration.</p></section>
+<section class="desc"><p>api uri list</p></section>
 </dd>
 <dt id="ker.api.list.API_LIST.DNS_DELETE"><code class="name">var <span class="ident">DNS_DELETE</span></code></dt>
 <dd>
-<section class="desc"><p>An enumeration.</p></section>
+<section class="desc"><p>api uri list</p></section>
 </dd>
 <dt id="ker.api.list.API_LIST.DNS_EDIT"><code class="name">var <span class="ident">DNS_EDIT</span></code></dt>
 <dd>
-<section class="desc"><p>An enumeration.</p></section>
+<section class="desc"><p>api uri list</p></section>
 </dd>
 <dt id="ker.api.list.API_LIST.DNS_LIST"><code class="name">var <span class="ident">DNS_LIST</span></code></dt>
 <dd>
-<section class="desc"><p>An enumeration.</p></section>
+<section class="desc"><p>api uri list</p></section>
 </dd>
 <dt id="ker.api.list.API_LIST.MONITOR_CPU"><code class="name">var <span class="ident">MONITOR_CPU</span></code></dt>
 <dd>
-<section class="desc"><p>An enumeration.</p></section>
+<section class="desc"><p>api uri list</p></section>
 </dd>
 <dt id="ker.api.list.API_LIST.MONITOR_IO"><code class="name">var <span class="ident">MONITOR_IO</span></code></dt>
 <dd>
-<section class="desc"><p>An enumeration.</p></section>
+<section class="desc"><p>api uri list</p></section>
 </dd>
 <dt id="ker.api.list.API_LIST.MONITOR_NAT"><code class="name">var <span class="ident">MONITOR_NAT</span></code></dt>
 <dd>
-<section class="desc"><p>An enumeration.</p></section>
+<section class="desc"><p>api uri list</p></section>
 </dd>
 <dt id="ker.api.list.API_LIST.MONITOR_NET"><code class="name">var <span class="ident">MONITOR_NET</span></code></dt>
 <dd>
-<section class="desc"><p>An enumeration.</p></section>
+<section class="desc"><p>api uri list</p></section>
 </dd>
 <dt id="ker.api.list.API_LIST.SERVERS_LIST"><code class="name">var <span class="ident">SERVERS_LIST</span></code></dt>
 <dd>
-<section class="desc"><p>An enumeration.</p></section>
+<section class="desc"><p>api uri list</p></section>
 </dd>
 <dt id="ker.api.list.API_LIST.SERVER_CREATE"><code class="name">var <span class="ident">SERVER_CREATE</span></code></dt>
 <dd>
-<section class="desc"><p>An enumeration.</p></section>
+<section class="desc"><p>api uri list</p></section>
 </dd>
 <dt id="ker.api.list.API_LIST.SERVER_DELETE"><code class="name">var <span class="ident">SERVER_DELETE</span></code></dt>
 <dd>
-<section class="desc"><p>An enumeration.</p></section>
+<section class="desc"><p>api uri list</p></section>
 </dd>
 <dt id="ker.api.list.API_LIST.SERVER_GET"><code class="name">var <span class="ident">SERVER_GET</span></code></dt>
 <dd>
-<section class="desc"><p>An enumeration.</p></section>
+<section class="desc"><p>api uri list</p></section>
 </dd>
 <dt id="ker.api.list.API_LIST.SERVER_REINSTALL"><code class="name">var <span class="ident">SERVER_REINSTALL</span></code></dt>
 <dd>
-<section class="desc"><p>An enumeration.</p></section>
+<section class="desc"><p>api uri list</p></section>
 </dd>
 <dt id="ker.api.list.API_LIST.SERVER_SET"><code class="name">var <span class="ident">SERVER_SET</span></code></dt>
 <dd>
-<section class="desc"><p>An enumeration.</p></section>
+<section class="desc"><p>api uri list</p></section>
 </dd>
 <dt id="ker.api.list.API_LIST.SERVER_SET_POWER"><code class="name">var <span class="ident">SERVER_SET_POWER</span></code></dt>
 <dd>
-<section class="desc"><p>An enumeration.</p></section>
+<section class="desc"><p>api uri list</p></section>
 </dd>
 <dt id="ker.api.list.API_LIST.SSH_CREATE"><code class="name">var <span class="ident">SSH_CREATE</span></code></dt>
 <dd>
-<section class="desc"><p>An enumeration.</p></section>
+<section class="desc"><p>api uri list</p></section>
 </dd>
 <dt id="ker.api.list.API_LIST.SSH_DELETE"><code class="name">var <span class="ident">SSH_DELETE</span></code></dt>
 <dd>
-<section class="desc"><p>An enumeration.</p></section>
+<section class="desc"><p>api uri list</p></section>
 </dd>
 <dt id="ker.api.list.API_LIST.SSH_LIST"><code class="name">var <span class="ident">SSH_LIST</span></code></dt>
 <dd>
-<section class="desc"><p>An enumeration.</p></section>
+<section class="desc"><p>api uri list</p></section>
 </dd>
 </dl>
 </dd>

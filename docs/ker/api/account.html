@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.7.0" />
 <title>ker.api.account API documentation</title>
-<meta name="description" content="" />
+<meta name="description" content="account module" />
 <link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
 <link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
@@ -20,23 +20,37 @@
 <h1 class="title">Module <code>ker.api.account</code></h1>
 </header>
 <section id="section-intro">
+<p>account module</p>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">from ker.utils import request
-from ker.api import API_LIST
+<pre><code class="python">&#34;&#34;&#34;
+account module
+&#34;&#34;&#34;
+from ker.utils import request
+from .list import API_LIST
+
 
 class Account:
-  def __init__(self, email, token):
-    self.email = email
-    self.token = token
+    &#34;&#34;&#34;
+    all account apis
+    &#34;&#34;&#34;
+    def __init__(self, email, token):
+        self.email = email
+        self.token = token
 
-  def get_quota(self):
-    return request(API_LIST.ACCOUNT_QUOTA.value, {&#39;email&#39;: self.email, &#39;token&#39;: self.token})
-  
-  def get_balance(self):
-    return request(API_LIST.ACCOUNT_BALANCE.value, {&#39;email&#39;: self.email, &#39;token&#39;: self.token})</code></pre>
+    def get_quota(self):
+        &#34;&#34;&#34;
+        get quota infomation for user
+        &#34;&#34;&#34;
+        return request(API_LIST.ACCOUNT_QUOTA.value, {&#39;email&#39;: self.email, &#39;token&#39;: self.token})
+
+    def get_balance(self):
+        &#34;&#34;&#34;
+        get balance information for user
+        &#34;&#34;&#34;
+        return request(API_LIST.ACCOUNT_BALANCE.value, {&#39;email&#39;: self.email, &#39;token&#39;: self.token})</code></pre>
 </details>
 </section>
 <section>
@@ -53,21 +67,30 @@ class Account:
 <span>(</span><span>email, token)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>all account apis</p></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class Account:
-  def __init__(self, email, token):
-    self.email = email
-    self.token = token
+    &#34;&#34;&#34;
+    all account apis
+    &#34;&#34;&#34;
+    def __init__(self, email, token):
+        self.email = email
+        self.token = token
 
-  def get_quota(self):
-    return request(API_LIST.ACCOUNT_QUOTA.value, {&#39;email&#39;: self.email, &#39;token&#39;: self.token})
-  
-  def get_balance(self):
-    return request(API_LIST.ACCOUNT_BALANCE.value, {&#39;email&#39;: self.email, &#39;token&#39;: self.token})</code></pre>
+    def get_quota(self):
+        &#34;&#34;&#34;
+        get quota infomation for user
+        &#34;&#34;&#34;
+        return request(API_LIST.ACCOUNT_QUOTA.value, {&#39;email&#39;: self.email, &#39;token&#39;: self.token})
+
+    def get_balance(self):
+        &#34;&#34;&#34;
+        get balance information for user
+        &#34;&#34;&#34;
+        return request(API_LIST.ACCOUNT_BALANCE.value, {&#39;email&#39;: self.email, &#39;token&#39;: self.token})</code></pre>
 </details>
 <h3>Methods</h3>
 <dl>
@@ -75,26 +98,32 @@ class Account:
 <span>def <span class="ident">get_balance</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>get balance information for user</p></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_balance(self):
-  return request(API_LIST.ACCOUNT_BALANCE.value, {&#39;email&#39;: self.email, &#39;token&#39;: self.token})</code></pre>
+    &#34;&#34;&#34;
+    get balance information for user
+    &#34;&#34;&#34;
+    return request(API_LIST.ACCOUNT_BALANCE.value, {&#39;email&#39;: self.email, &#39;token&#39;: self.token})</code></pre>
 </details>
 </dd>
 <dt id="ker.api.account.Account.get_quota"><code class="name flex">
 <span>def <span class="ident">get_quota</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>get quota infomation for user</p></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def get_quota(self):
-  return request(API_LIST.ACCOUNT_QUOTA.value, {&#39;email&#39;: self.email, &#39;token&#39;: self.token})</code></pre>
+    &#34;&#34;&#34;
+    get quota infomation for user
+    &#34;&#34;&#34;
+    return request(API_LIST.ACCOUNT_QUOTA.value, {&#39;email&#39;: self.email, &#39;token&#39;: self.token})</code></pre>
 </details>
 </dd>
 </dl>

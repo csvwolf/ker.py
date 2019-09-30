@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.7.0" />
 <title>ker.api.monitor API documentation</title>
-<meta name="description" content="" />
+<meta name="description" content="monitor module" />
 <link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
 <link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
@@ -20,58 +20,78 @@
 <h1 class="title">Module <code>ker.api.monitor</code></h1>
 </header>
 <section id="section-intro">
+<p>monitor module</p>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">from datetime import datetime
+<pre><code class="python">&#34;&#34;&#34;
+monitor module
+&#34;&#34;&#34;
+from datetime import datetime
 from ker.utils import request
-from ker.api import API_LIST
+from .list import API_LIST
+
 
 class Monitor:
-  def __init__(self, email, token):
-    self.email = email
-    self.token = token
+    &#34;&#34;&#34;
+    monitor api
+    &#34;&#34;&#34;
+    def __init__(self, email, token):
+        self.email = email
+        self.token = token
 
-  def get_cpu(self, uuid, start_time, unit, end_time = datetime.utcnow()):
-    return request(API_LIST.MONITOR_CPU.value, {
-      &#39;email&#39;: self.email,
-      &#39;token&#39;: self.token,
-      &#39;uuid&#39;: uuid,
-      &#39;startTime&#39;: start_time,
-      &#39;endTime&#39;: end_time,
-      &#39;unit&#39;: unit
-    })
+    def get_cpu(self, uuid, start_time, unit, end_time=datetime.utcnow()):
+        &#34;&#34;&#34;
+        get monitor info for cpu
+        &#34;&#34;&#34;
+        return request(API_LIST.MONITOR_CPU.value, {
+            &#39;email&#39;: self.email,
+            &#39;token&#39;: self.token,
+            &#39;uuid&#39;: uuid,
+            &#39;startTime&#39;: start_time,
+            &#39;endTime&#39;: end_time,
+            &#39;unit&#39;: unit
+        })
 
-  def get_net(self, uuid, start_time, unit, end_time = datetime.utcnow()):
-    return request(API_LIST.MONITOR_NET.value, {
-      &#39;email&#39;: self.email,
-      &#39;token&#39;: self.token,
-      &#39;uuid&#39;: uuid,
-      &#39;startTime&#39;: start_time,
-      &#39;endTime&#39;: end_time,
-      &#39;unit&#39;: unit
-    })
-  
-  def get_nat(self, uuid, start_time, unit, end_time = datetime.utcnow()):
-    return request(API_LIST.MONITOR_NAT.value, {
-      &#39;email&#39;: self.email,
-      &#39;token&#39;: self.token,
-      &#39;uuid&#39;: uuid,
-      &#39;startTime&#39;: start_time,
-      &#39;endTime&#39;: end_time,
-      &#39;unit&#39;: unit
-    })
+    def get_net(self, uuid, start_time, unit, end_time=datetime.utcnow()):
+        &#34;&#34;&#34;
+        get monitor info for network
+        &#34;&#34;&#34;
+        return request(API_LIST.MONITOR_NET.value, {
+            &#39;email&#39;: self.email,
+            &#39;token&#39;: self.token,
+            &#39;uuid&#39;: uuid,
+            &#39;startTime&#39;: start_time,
+            &#39;endTime&#39;: end_time,
+            &#39;unit&#39;: unit
+        })
 
-  def get_io(self, uuid, start_time, unit, end_time = datetime.utcnow()):
-    return request(API_LIST.MONITOR_IO.value, {
-      &#39;email&#39;: self.email,
-      &#39;token&#39;: self.token,
-      &#39;uuid&#39;: uuid,
-      &#39;start_time&#39;: start_time,
-      &#39;end_time&#39;: end_time,
-      &#39;unit&#39;: unit
-    })</code></pre>
+    def get_nat(self, uuid, start_time, unit, end_time=datetime.utcnow()):
+        &#34;&#34;&#34;
+        get monitor info for nat
+        &#34;&#34;&#34;
+        return request(API_LIST.MONITOR_NAT.value, {
+            &#39;email&#39;: self.email,
+            &#39;token&#39;: self.token,
+            &#39;uuid&#39;: uuid,
+            &#39;startTime&#39;: start_time,
+            &#39;endTime&#39;: end_time,
+            &#39;unit&#39;: unit
+        })
+
+    def get_io(self, uuid, start_time, unit, end_time=datetime.utcnow()):
+        &#34;&#34;&#34;
+        get monitor info for io
+        &#34;&#34;&#34;
+        return request(API_LIST.MONITOR_IO.value, {
+            &#39;email&#39;: self.email,
+            &#39;token&#39;: self.token,
+            &#39;uuid&#39;: uuid,
+            &#39;start_time&#39;: start_time,
+            &#39;end_time&#39;: end_time,
+            &#39;unit&#39;: unit
+        })</code></pre>
 </details>
 </section>
 <section>
@@ -88,136 +108,163 @@ class Monitor:
 <span>(</span><span>email, token)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>monitor api</p></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class Monitor:
-  def __init__(self, email, token):
-    self.email = email
-    self.token = token
+    &#34;&#34;&#34;
+    monitor api
+    &#34;&#34;&#34;
+    def __init__(self, email, token):
+        self.email = email
+        self.token = token
 
-  def get_cpu(self, uuid, start_time, unit, end_time = datetime.utcnow()):
-    return request(API_LIST.MONITOR_CPU.value, {
-      &#39;email&#39;: self.email,
-      &#39;token&#39;: self.token,
-      &#39;uuid&#39;: uuid,
-      &#39;startTime&#39;: start_time,
-      &#39;endTime&#39;: end_time,
-      &#39;unit&#39;: unit
-    })
+    def get_cpu(self, uuid, start_time, unit, end_time=datetime.utcnow()):
+        &#34;&#34;&#34;
+        get monitor info for cpu
+        &#34;&#34;&#34;
+        return request(API_LIST.MONITOR_CPU.value, {
+            &#39;email&#39;: self.email,
+            &#39;token&#39;: self.token,
+            &#39;uuid&#39;: uuid,
+            &#39;startTime&#39;: start_time,
+            &#39;endTime&#39;: end_time,
+            &#39;unit&#39;: unit
+        })
 
-  def get_net(self, uuid, start_time, unit, end_time = datetime.utcnow()):
-    return request(API_LIST.MONITOR_NET.value, {
-      &#39;email&#39;: self.email,
-      &#39;token&#39;: self.token,
-      &#39;uuid&#39;: uuid,
-      &#39;startTime&#39;: start_time,
-      &#39;endTime&#39;: end_time,
-      &#39;unit&#39;: unit
-    })
-  
-  def get_nat(self, uuid, start_time, unit, end_time = datetime.utcnow()):
-    return request(API_LIST.MONITOR_NAT.value, {
-      &#39;email&#39;: self.email,
-      &#39;token&#39;: self.token,
-      &#39;uuid&#39;: uuid,
-      &#39;startTime&#39;: start_time,
-      &#39;endTime&#39;: end_time,
-      &#39;unit&#39;: unit
-    })
+    def get_net(self, uuid, start_time, unit, end_time=datetime.utcnow()):
+        &#34;&#34;&#34;
+        get monitor info for network
+        &#34;&#34;&#34;
+        return request(API_LIST.MONITOR_NET.value, {
+            &#39;email&#39;: self.email,
+            &#39;token&#39;: self.token,
+            &#39;uuid&#39;: uuid,
+            &#39;startTime&#39;: start_time,
+            &#39;endTime&#39;: end_time,
+            &#39;unit&#39;: unit
+        })
 
-  def get_io(self, uuid, start_time, unit, end_time = datetime.utcnow()):
-    return request(API_LIST.MONITOR_IO.value, {
-      &#39;email&#39;: self.email,
-      &#39;token&#39;: self.token,
-      &#39;uuid&#39;: uuid,
-      &#39;start_time&#39;: start_time,
-      &#39;end_time&#39;: end_time,
-      &#39;unit&#39;: unit
-    })</code></pre>
+    def get_nat(self, uuid, start_time, unit, end_time=datetime.utcnow()):
+        &#34;&#34;&#34;
+        get monitor info for nat
+        &#34;&#34;&#34;
+        return request(API_LIST.MONITOR_NAT.value, {
+            &#39;email&#39;: self.email,
+            &#39;token&#39;: self.token,
+            &#39;uuid&#39;: uuid,
+            &#39;startTime&#39;: start_time,
+            &#39;endTime&#39;: end_time,
+            &#39;unit&#39;: unit
+        })
+
+    def get_io(self, uuid, start_time, unit, end_time=datetime.utcnow()):
+        &#34;&#34;&#34;
+        get monitor info for io
+        &#34;&#34;&#34;
+        return request(API_LIST.MONITOR_IO.value, {
+            &#39;email&#39;: self.email,
+            &#39;token&#39;: self.token,
+            &#39;uuid&#39;: uuid,
+            &#39;start_time&#39;: start_time,
+            &#39;end_time&#39;: end_time,
+            &#39;unit&#39;: unit
+        })</code></pre>
 </details>
 <h3>Methods</h3>
 <dl>
 <dt id="ker.api.monitor.Monitor.get_cpu"><code class="name flex">
-<span>def <span class="ident">get_cpu</span></span>(<span>self, uuid, start_time, unit, end_time=datetime.datetime(2019, 9, 30, 6, 2, 37, 80198))</span>
+<span>def <span class="ident">get_cpu</span></span>(<span>self, uuid, start_time, unit, end_time=datetime.datetime(2019, 9, 30, 8, 13, 59, 515089))</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>get monitor info for cpu</p></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def get_cpu(self, uuid, start_time, unit, end_time = datetime.utcnow()):
-  return request(API_LIST.MONITOR_CPU.value, {
-    &#39;email&#39;: self.email,
-    &#39;token&#39;: self.token,
-    &#39;uuid&#39;: uuid,
-    &#39;startTime&#39;: start_time,
-    &#39;endTime&#39;: end_time,
-    &#39;unit&#39;: unit
-  })</code></pre>
+<pre><code class="python">def get_cpu(self, uuid, start_time, unit, end_time=datetime.utcnow()):
+    &#34;&#34;&#34;
+    get monitor info for cpu
+    &#34;&#34;&#34;
+    return request(API_LIST.MONITOR_CPU.value, {
+        &#39;email&#39;: self.email,
+        &#39;token&#39;: self.token,
+        &#39;uuid&#39;: uuid,
+        &#39;startTime&#39;: start_time,
+        &#39;endTime&#39;: end_time,
+        &#39;unit&#39;: unit
+    })</code></pre>
 </details>
 </dd>
 <dt id="ker.api.monitor.Monitor.get_io"><code class="name flex">
-<span>def <span class="ident">get_io</span></span>(<span>self, uuid, start_time, unit, end_time=datetime.datetime(2019, 9, 30, 6, 2, 37, 80348))</span>
+<span>def <span class="ident">get_io</span></span>(<span>self, uuid, start_time, unit, end_time=datetime.datetime(2019, 9, 30, 8, 13, 59, 515245))</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>get monitor info for io</p></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def get_io(self, uuid, start_time, unit, end_time = datetime.utcnow()):
-  return request(API_LIST.MONITOR_IO.value, {
-    &#39;email&#39;: self.email,
-    &#39;token&#39;: self.token,
-    &#39;uuid&#39;: uuid,
-    &#39;start_time&#39;: start_time,
-    &#39;end_time&#39;: end_time,
-    &#39;unit&#39;: unit
-  })</code></pre>
+<pre><code class="python">def get_io(self, uuid, start_time, unit, end_time=datetime.utcnow()):
+    &#34;&#34;&#34;
+    get monitor info for io
+    &#34;&#34;&#34;
+    return request(API_LIST.MONITOR_IO.value, {
+        &#39;email&#39;: self.email,
+        &#39;token&#39;: self.token,
+        &#39;uuid&#39;: uuid,
+        &#39;start_time&#39;: start_time,
+        &#39;end_time&#39;: end_time,
+        &#39;unit&#39;: unit
+    })</code></pre>
 </details>
 </dd>
 <dt id="ker.api.monitor.Monitor.get_nat"><code class="name flex">
-<span>def <span class="ident">get_nat</span></span>(<span>self, uuid, start_time, unit, end_time=datetime.datetime(2019, 9, 30, 6, 2, 37, 80348))</span>
+<span>def <span class="ident">get_nat</span></span>(<span>self, uuid, start_time, unit, end_time=datetime.datetime(2019, 9, 30, 8, 13, 59, 515244))</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>get monitor info for nat</p></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def get_nat(self, uuid, start_time, unit, end_time = datetime.utcnow()):
-  return request(API_LIST.MONITOR_NAT.value, {
-    &#39;email&#39;: self.email,
-    &#39;token&#39;: self.token,
-    &#39;uuid&#39;: uuid,
-    &#39;startTime&#39;: start_time,
-    &#39;endTime&#39;: end_time,
-    &#39;unit&#39;: unit
-  })</code></pre>
+<pre><code class="python">def get_nat(self, uuid, start_time, unit, end_time=datetime.utcnow()):
+    &#34;&#34;&#34;
+    get monitor info for nat
+    &#34;&#34;&#34;
+    return request(API_LIST.MONITOR_NAT.value, {
+        &#39;email&#39;: self.email,
+        &#39;token&#39;: self.token,
+        &#39;uuid&#39;: uuid,
+        &#39;startTime&#39;: start_time,
+        &#39;endTime&#39;: end_time,
+        &#39;unit&#39;: unit
+    })</code></pre>
 </details>
 </dd>
 <dt id="ker.api.monitor.Monitor.get_net"><code class="name flex">
-<span>def <span class="ident">get_net</span></span>(<span>self, uuid, start_time, unit, end_time=datetime.datetime(2019, 9, 30, 6, 2, 37, 80347))</span>
+<span>def <span class="ident">get_net</span></span>(<span>self, uuid, start_time, unit, end_time=datetime.datetime(2019, 9, 30, 8, 13, 59, 515243))</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>get monitor info for network</p></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def get_net(self, uuid, start_time, unit, end_time = datetime.utcnow()):
-  return request(API_LIST.MONITOR_NET.value, {
-    &#39;email&#39;: self.email,
-    &#39;token&#39;: self.token,
-    &#39;uuid&#39;: uuid,
-    &#39;startTime&#39;: start_time,
-    &#39;endTime&#39;: end_time,
-    &#39;unit&#39;: unit
-  })</code></pre>
+<pre><code class="python">def get_net(self, uuid, start_time, unit, end_time=datetime.utcnow()):
+    &#34;&#34;&#34;
+    get monitor info for network
+    &#34;&#34;&#34;
+    return request(API_LIST.MONITOR_NET.value, {
+        &#39;email&#39;: self.email,
+        &#39;token&#39;: self.token,
+        &#39;uuid&#39;: uuid,
+        &#39;startTime&#39;: start_time,
+        &#39;endTime&#39;: end_time,
+        &#39;unit&#39;: unit
+    })</code></pre>
 </details>
 </dd>
 </dl>

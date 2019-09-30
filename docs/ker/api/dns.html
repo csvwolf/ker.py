@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.7.0" />
 <title>ker.api.dns API documentation</title>
-<meta name="description" content="" />
+<meta name="description" content="dns module" />
 <link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
 <link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
@@ -20,65 +20,85 @@
 <h1 class="title">Module <code>ker.api.dns</code></h1>
 </header>
 <section id="section-intro">
+<p>dns module</p>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">from ker.utils import request
-from ker.api import API_LIST
+<pre><code class="python">&#34;&#34;&#34;
+dns module
+&#34;&#34;&#34;
+from ker.utils import request
+from .list import API_LIST
+
 
 class DNS:
-  def __init__(self, email, token):
-    self.email = email
-    self.token = token
+    &#34;&#34;&#34;
+    dns apis
+    &#34;&#34;&#34;
+    def __init__(self, email, token):
+        self.email = email
+        self.token = token
 
-  def list(self, domain):
-    return request(
-      API_LIST.DNS_LIST.value,
-      {
-        &#39;email&#39;: self.email,
-        &#39;token&#39;: self.token,
-        &#39;domain&#39;: domain
-      }
-    )
-  
-  def add(self, domain, header, type, data, ttl = 300, priority = 5):
-    return request(
-      API_LIST.DNS_ADD.value,
-      {
-        &#39;email&#39;: self.email,
-        &#39;token&#39;: self.token,
-        &#39;domain&#39;: domain,
-        &#39;header&#39;: header,
-        &#39;type&#39;: type,
-        &#39;data&#39;: data,
-        &#39;ttl&#39;: ttl,
-        &#39;priority&#39;: priority
-      }
-    )
+    def list(self, domain):
+        &#34;&#34;&#34;
+        list dns config by domain name
+        &#34;&#34;&#34;
+        return request(
+            API_LIST.DNS_LIST.value,
+            {
+                &#39;email&#39;: self.email,
+                &#39;token&#39;: self.token,
+                &#39;domain&#39;: domain
+            }
+        )
 
-  def edit(self, id, data, ttl = 300, priority = 5):
-    return request(
-      API_LIST.DNS_EDIT.value,
-      {
-        &#39;email&#39;: self.email,
-        &#39;token&#39;: self.token,
-        &#39;id&#39;: id,
-        &#39;data&#39;: data,
-        &#39;ttl&#39;: ttl,
-        &#39;priority&#39;: priority
-      }
-    )
-  
-  def delete(self, id):
-    return request(
-      API_LIST.DNS_DELETE.value,
-      {
-        &#39;email&#39;: self.email,
-        &#39;token&#39;: self.token,
-        &#39;id&#39;: id
-      }
-    )</code></pre>
+    def add(self, domain, header, record_type, data, ttl=300, priority=5):
+        &#34;&#34;&#34;
+        add dns config by domain name
+        &#34;&#34;&#34;
+        return request(
+            API_LIST.DNS_ADD.value,
+            {
+                &#39;email&#39;: self.email,
+                &#39;token&#39;: self.token,
+                &#39;domain&#39;: domain,
+                &#39;header&#39;: header,
+                &#39;type&#39;: record_type,
+                &#39;data&#39;: data,
+                &#39;ttl&#39;: ttl,
+                &#39;priority&#39;: priority
+            }
+        )
+
+    def edit(self, unique_id, data, ttl=300, priority=5):
+        &#34;&#34;&#34;
+        edit dns config by id
+        &#34;&#34;&#34;
+        return request(
+            API_LIST.DNS_EDIT.value,
+            {
+                &#39;email&#39;: self.email,
+                &#39;token&#39;: self.token,
+                &#39;id&#39;: unique_id,
+                &#39;data&#39;: data,
+                &#39;ttl&#39;: ttl,
+                &#39;priority&#39;: priority
+            }
+        )
+
+    def delete(self, unique_id):
+        &#34;&#34;&#34;
+        delete dns config by id
+        &#34;&#34;&#34;
+        return request(
+            API_LIST.DNS_DELETE.value,
+            {
+                &#39;email&#39;: self.email,
+                &#39;token&#39;: self.token,
+                &#39;id&#39;: unique_id
+            }
+        )</code></pre>
 </details>
 </section>
 <section>
@@ -95,152 +115,179 @@ class DNS:
 <span>(</span><span>email, token)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>dns apis</p></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class DNS:
-  def __init__(self, email, token):
-    self.email = email
-    self.token = token
+    &#34;&#34;&#34;
+    dns apis
+    &#34;&#34;&#34;
+    def __init__(self, email, token):
+        self.email = email
+        self.token = token
 
-  def list(self, domain):
-    return request(
-      API_LIST.DNS_LIST.value,
-      {
-        &#39;email&#39;: self.email,
-        &#39;token&#39;: self.token,
-        &#39;domain&#39;: domain
-      }
-    )
-  
-  def add(self, domain, header, type, data, ttl = 300, priority = 5):
-    return request(
-      API_LIST.DNS_ADD.value,
-      {
-        &#39;email&#39;: self.email,
-        &#39;token&#39;: self.token,
-        &#39;domain&#39;: domain,
-        &#39;header&#39;: header,
-        &#39;type&#39;: type,
-        &#39;data&#39;: data,
-        &#39;ttl&#39;: ttl,
-        &#39;priority&#39;: priority
-      }
-    )
+    def list(self, domain):
+        &#34;&#34;&#34;
+        list dns config by domain name
+        &#34;&#34;&#34;
+        return request(
+            API_LIST.DNS_LIST.value,
+            {
+                &#39;email&#39;: self.email,
+                &#39;token&#39;: self.token,
+                &#39;domain&#39;: domain
+            }
+        )
 
-  def edit(self, id, data, ttl = 300, priority = 5):
-    return request(
-      API_LIST.DNS_EDIT.value,
-      {
-        &#39;email&#39;: self.email,
-        &#39;token&#39;: self.token,
-        &#39;id&#39;: id,
-        &#39;data&#39;: data,
-        &#39;ttl&#39;: ttl,
-        &#39;priority&#39;: priority
-      }
-    )
-  
-  def delete(self, id):
-    return request(
-      API_LIST.DNS_DELETE.value,
-      {
-        &#39;email&#39;: self.email,
-        &#39;token&#39;: self.token,
-        &#39;id&#39;: id
-      }
-    )</code></pre>
+    def add(self, domain, header, record_type, data, ttl=300, priority=5):
+        &#34;&#34;&#34;
+        add dns config by domain name
+        &#34;&#34;&#34;
+        return request(
+            API_LIST.DNS_ADD.value,
+            {
+                &#39;email&#39;: self.email,
+                &#39;token&#39;: self.token,
+                &#39;domain&#39;: domain,
+                &#39;header&#39;: header,
+                &#39;type&#39;: record_type,
+                &#39;data&#39;: data,
+                &#39;ttl&#39;: ttl,
+                &#39;priority&#39;: priority
+            }
+        )
+
+    def edit(self, unique_id, data, ttl=300, priority=5):
+        &#34;&#34;&#34;
+        edit dns config by id
+        &#34;&#34;&#34;
+        return request(
+            API_LIST.DNS_EDIT.value,
+            {
+                &#39;email&#39;: self.email,
+                &#39;token&#39;: self.token,
+                &#39;id&#39;: unique_id,
+                &#39;data&#39;: data,
+                &#39;ttl&#39;: ttl,
+                &#39;priority&#39;: priority
+            }
+        )
+
+    def delete(self, unique_id):
+        &#34;&#34;&#34;
+        delete dns config by id
+        &#34;&#34;&#34;
+        return request(
+            API_LIST.DNS_DELETE.value,
+            {
+                &#39;email&#39;: self.email,
+                &#39;token&#39;: self.token,
+                &#39;id&#39;: unique_id
+            }
+        )</code></pre>
 </details>
 <h3>Methods</h3>
 <dl>
 <dt id="ker.api.dns.DNS.add"><code class="name flex">
-<span>def <span class="ident">add</span></span>(<span>self, domain, header, type, data, ttl=300, priority=5)</span>
+<span>def <span class="ident">add</span></span>(<span>self, domain, header, record_type, data, ttl=300, priority=5)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>add dns config by domain name</p></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def add(self, domain, header, type, data, ttl = 300, priority = 5):
-  return request(
-    API_LIST.DNS_ADD.value,
-    {
-      &#39;email&#39;: self.email,
-      &#39;token&#39;: self.token,
-      &#39;domain&#39;: domain,
-      &#39;header&#39;: header,
-      &#39;type&#39;: type,
-      &#39;data&#39;: data,
-      &#39;ttl&#39;: ttl,
-      &#39;priority&#39;: priority
-    }
-  )</code></pre>
+<pre><code class="python">def add(self, domain, header, record_type, data, ttl=300, priority=5):
+    &#34;&#34;&#34;
+    add dns config by domain name
+    &#34;&#34;&#34;
+    return request(
+        API_LIST.DNS_ADD.value,
+        {
+            &#39;email&#39;: self.email,
+            &#39;token&#39;: self.token,
+            &#39;domain&#39;: domain,
+            &#39;header&#39;: header,
+            &#39;type&#39;: record_type,
+            &#39;data&#39;: data,
+            &#39;ttl&#39;: ttl,
+            &#39;priority&#39;: priority
+        }
+    )</code></pre>
 </details>
 </dd>
 <dt id="ker.api.dns.DNS.delete"><code class="name flex">
-<span>def <span class="ident">delete</span></span>(<span>self, id)</span>
+<span>def <span class="ident">delete</span></span>(<span>self, unique_id)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>delete dns config by id</p></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def delete(self, id):
-  return request(
-    API_LIST.DNS_DELETE.value,
-    {
-      &#39;email&#39;: self.email,
-      &#39;token&#39;: self.token,
-      &#39;id&#39;: id
-    }
-  )</code></pre>
+<pre><code class="python">def delete(self, unique_id):
+    &#34;&#34;&#34;
+    delete dns config by id
+    &#34;&#34;&#34;
+    return request(
+        API_LIST.DNS_DELETE.value,
+        {
+            &#39;email&#39;: self.email,
+            &#39;token&#39;: self.token,
+            &#39;id&#39;: unique_id
+        }
+    )</code></pre>
 </details>
 </dd>
 <dt id="ker.api.dns.DNS.edit"><code class="name flex">
-<span>def <span class="ident">edit</span></span>(<span>self, id, data, ttl=300, priority=5)</span>
+<span>def <span class="ident">edit</span></span>(<span>self, unique_id, data, ttl=300, priority=5)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>edit dns config by id</p></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def edit(self, id, data, ttl = 300, priority = 5):
-  return request(
-    API_LIST.DNS_EDIT.value,
-    {
-      &#39;email&#39;: self.email,
-      &#39;token&#39;: self.token,
-      &#39;id&#39;: id,
-      &#39;data&#39;: data,
-      &#39;ttl&#39;: ttl,
-      &#39;priority&#39;: priority
-    }
-  )</code></pre>
+<pre><code class="python">def edit(self, unique_id, data, ttl=300, priority=5):
+    &#34;&#34;&#34;
+    edit dns config by id
+    &#34;&#34;&#34;
+    return request(
+        API_LIST.DNS_EDIT.value,
+        {
+            &#39;email&#39;: self.email,
+            &#39;token&#39;: self.token,
+            &#39;id&#39;: unique_id,
+            &#39;data&#39;: data,
+            &#39;ttl&#39;: ttl,
+            &#39;priority&#39;: priority
+        }
+    )</code></pre>
 </details>
 </dd>
 <dt id="ker.api.dns.DNS.list"><code class="name flex">
 <span>def <span class="ident">list</span></span>(<span>self, domain)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>list dns config by domain name</p></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def list(self, domain):
-  return request(
-    API_LIST.DNS_LIST.value,
-    {
-      &#39;email&#39;: self.email,
-      &#39;token&#39;: self.token,
-      &#39;domain&#39;: domain
-    }
-  )</code></pre>
+    &#34;&#34;&#34;
+    list dns config by domain name
+    &#34;&#34;&#34;
+    return request(
+        API_LIST.DNS_LIST.value,
+        {
+            &#39;email&#39;: self.email,
+            &#39;token&#39;: self.token,
+            &#39;domain&#39;: domain
+        }
+    )</code></pre>
 </details>
 </dd>
 </dl>

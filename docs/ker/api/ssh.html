@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.7.0" />
 <title>ker.api.ssh API documentation</title>
-<meta name="description" content="" />
+<meta name="description" content="ssh module" />
 <link href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css' rel='stylesheet'>
 <link href='https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/8.0.0/sanitize.min.css' rel='stylesheet'>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" rel="stylesheet">
@@ -20,37 +20,54 @@
 <h1 class="title">Module <code>ker.api.ssh</code></h1>
 </header>
 <section id="section-intro">
+<p>ssh module</p>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">from ker.utils import request
-from ker.api import API_LIST
+<pre><code class="python">&#34;&#34;&#34;
+ssh module
+&#34;&#34;&#34;
+from ker.utils import request
+from .list import API_LIST
+
 
 class SSH:
-  def __init__(self, email, token):
-    self.email = email
-    self.token = token
+    &#34;&#34;&#34;
+    ssh api
+    &#34;&#34;&#34;
+    def __init__(self, email, token):
+        self.email = email
+        self.token = token
 
-  def list(self):
-    return request(API_LIST.SSH_LIST.value, {
-      &#39;email&#39;: self.email,
-      &#39;token&#39;: self.token
-    })
+    def list(self):
+        &#34;&#34;&#34;
+        list ssh keys
+        &#34;&#34;&#34;
+        return request(API_LIST.SSH_LIST.value, {
+            &#39;email&#39;: self.email,
+            &#39;token&#39;: self.token
+        })
 
-  def create(self, name, key):
-    return request(API_LIST.SSH_CREATE.value, {
-      &#39;email&#39;: self.email,
-      &#39;token&#39;: self.token,
-      &#39;name&#39;: name,
-      &#39;key&#39;: key
-    })
-  
-  def delete(self):
-    return request(API_LIST.SSH_DELETE.value, {
-      &#39;email&#39;: self.email,
-      &#39;token&#39;: self.token
-    })</code></pre>
+    def create(self, name, key):
+        &#34;&#34;&#34;
+        create ssh key
+        &#34;&#34;&#34;
+        return request(API_LIST.SSH_CREATE.value, {
+            &#39;email&#39;: self.email,
+            &#39;token&#39;: self.token,
+            &#39;name&#39;: name,
+            &#39;key&#39;: key
+        })
+
+    def delete(self):
+        &#34;&#34;&#34;
+        delete ssh key
+        &#34;&#34;&#34;
+        return request(API_LIST.SSH_DELETE.value, {
+            &#39;email&#39;: self.email,
+            &#39;token&#39;: self.token
+        })</code></pre>
 </details>
 </section>
 <section>
@@ -67,35 +84,47 @@ class SSH:
 <span>(</span><span>email, token)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>ssh api</p></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">class SSH:
-  def __init__(self, email, token):
-    self.email = email
-    self.token = token
+    &#34;&#34;&#34;
+    ssh api
+    &#34;&#34;&#34;
+    def __init__(self, email, token):
+        self.email = email
+        self.token = token
 
-  def list(self):
-    return request(API_LIST.SSH_LIST.value, {
-      &#39;email&#39;: self.email,
-      &#39;token&#39;: self.token
-    })
+    def list(self):
+        &#34;&#34;&#34;
+        list ssh keys
+        &#34;&#34;&#34;
+        return request(API_LIST.SSH_LIST.value, {
+            &#39;email&#39;: self.email,
+            &#39;token&#39;: self.token
+        })
 
-  def create(self, name, key):
-    return request(API_LIST.SSH_CREATE.value, {
-      &#39;email&#39;: self.email,
-      &#39;token&#39;: self.token,
-      &#39;name&#39;: name,
-      &#39;key&#39;: key
-    })
-  
-  def delete(self):
-    return request(API_LIST.SSH_DELETE.value, {
-      &#39;email&#39;: self.email,
-      &#39;token&#39;: self.token
-    })</code></pre>
+    def create(self, name, key):
+        &#34;&#34;&#34;
+        create ssh key
+        &#34;&#34;&#34;
+        return request(API_LIST.SSH_CREATE.value, {
+            &#39;email&#39;: self.email,
+            &#39;token&#39;: self.token,
+            &#39;name&#39;: name,
+            &#39;key&#39;: key
+        })
+
+    def delete(self):
+        &#34;&#34;&#34;
+        delete ssh key
+        &#34;&#34;&#34;
+        return request(API_LIST.SSH_DELETE.value, {
+            &#39;email&#39;: self.email,
+            &#39;token&#39;: self.token
+        })</code></pre>
 </details>
 <h3>Methods</h3>
 <dl>
@@ -103,50 +132,59 @@ class SSH:
 <span>def <span class="ident">create</span></span>(<span>self, name, key)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>create ssh key</p></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def create(self, name, key):
-  return request(API_LIST.SSH_CREATE.value, {
-    &#39;email&#39;: self.email,
-    &#39;token&#39;: self.token,
-    &#39;name&#39;: name,
-    &#39;key&#39;: key
-  })</code></pre>
+    &#34;&#34;&#34;
+    create ssh key
+    &#34;&#34;&#34;
+    return request(API_LIST.SSH_CREATE.value, {
+        &#39;email&#39;: self.email,
+        &#39;token&#39;: self.token,
+        &#39;name&#39;: name,
+        &#39;key&#39;: key
+    })</code></pre>
 </details>
 </dd>
 <dt id="ker.api.ssh.SSH.delete"><code class="name flex">
 <span>def <span class="ident">delete</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>delete ssh key</p></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def delete(self):
-  return request(API_LIST.SSH_DELETE.value, {
-    &#39;email&#39;: self.email,
-    &#39;token&#39;: self.token
-  })</code></pre>
+    &#34;&#34;&#34;
+    delete ssh key
+    &#34;&#34;&#34;
+    return request(API_LIST.SSH_DELETE.value, {
+        &#39;email&#39;: self.email,
+        &#39;token&#39;: self.token
+    })</code></pre>
 </details>
 </dd>
 <dt id="ker.api.ssh.SSH.list"><code class="name flex">
 <span>def <span class="ident">list</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<section class="desc"></section>
+<section class="desc"><p>list ssh keys</p></section>
 <details class="source">
 <summary>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def list(self):
-  return request(API_LIST.SSH_LIST.value, {
-    &#39;email&#39;: self.email,
-    &#39;token&#39;: self.token
-  })</code></pre>
+    &#34;&#34;&#34;
+    list ssh keys
+    &#34;&#34;&#34;
+    return request(API_LIST.SSH_LIST.value, {
+        &#39;email&#39;: self.email,
+        &#39;token&#39;: self.token
+    })</code></pre>
 </details>
 </dd>
 </dl>
