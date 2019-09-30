@@ -5,7 +5,7 @@ from setuptools import find_packages
 
 setup(
   name='ker.py',
-  version='0.0.1',
+  version='0.0.2',
   description='Hostker Python SDK',
   author='SkyAo',
   author_email='csvwolf@qq.com',
